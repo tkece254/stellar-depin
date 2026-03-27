@@ -2,6 +2,14 @@
 
 decentralized gpu rental. pay in xlm. no middlemen. simple.
 
+##contracts
+
+ Contract     │                         Address                          │            
+  ├─────────────────┼──────────────────────────────────────────────────────────┤
+  │ GPU Registry    │ CAHUSLBSYQETDXGUEDPMA6QNLRJBX2JW7BYL2LXSWYBLZN543FKM5LAX │            
+  ├─────────────────┼──────────────────────────────────────────────────────────┤          
+  │ Job Marketplace │ CAWNKF4EFHJYJPHZSIXYPG5D45HFGLBNFN6NGO3676YTRLNNXGKJ7PMW
+
 ## what is this
 
 rent gpus or make money from your idle hardware. built on stellar (soroban smart contracts).
