@@ -1,0 +1,48 @@
+{
+  "name": "carrot",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Decentralized GPU rental on Stellar. Pay in XLM.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "worker": "node worker/server.js",
+    "worker:docker": "cd worker/docker-image && docker build -t carrot-gpu-worker .",
+    "contracts:build": "cd contracts && cargo build --release --target wasm32-unknown-unknown",
+    "contracts:test": "cd contracts && cargo test",
+    "contracts:deploy": "bash scripts/deploy.sh"
+  },
+  "dependencies": {
+    "@stellar/freighter-api": "^6.0.1",
+    "@stellar/stellar-sdk": "^14.5.0",
+    "axios": "^1.13.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.6.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.18.2",
+    "form-data": "^4.0.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@types/node": "^25.2.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.5.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.29.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.2.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.34.0",
+    "vite": "^7.2.1"
+  }
+}

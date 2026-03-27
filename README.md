@@ -2,13 +2,6 @@
 
 decentralized gpu rental. pay in xlm. no middlemen. simple.
 
-##contracts
-
-   Contract                             Address                                    
-  
-  │ GPU Registry    │ CAHUSLBSYQETDXGUEDPMA6QNLRJBX2JW7BYL2LXSWYBLZN543FKM5LAX                  
-  │ Job Marketplace │ CAWNKF4EFHJYJPHZSIXYPG5D45HFGLBNFN6NGO3676YTRLNNXGKJ7PMW
-
 ## what is this
 
 rent gpus or make money from your idle hardware. built on stellar (soroban smart contracts).
@@ -17,34 +10,37 @@ rent gpus or make money from your idle hardware. built on stellar (soroban smart
 
 ```
 carrot/
+├── src/                # react frontend
+│   ├── config/         # contract addresses & helpers
+│   ├── hooks/          # wallet hook
+│   ├── pages/          # provider & consumer dashboards
+│   ├── types/          # typescript types
+│   └── utils/          # ipfs helpers
 ├── contracts/          # soroban smart contracts (rust)
 │   ├── gpu_registry/   # register and manage gpus
 │   └── job_marketplace/ # post jobs, escrow, payments
-├── frontend/           # react app
-└── provider-worker/    # gpu execution server
+├── worker/             # gpu execution server
+├── scripts/            # deploy scripts
+└── examples/           # docker & script examples
 ```
 
 ## quick start
 
-### frontend
 ```bash
-cd frontend
 npm install
 npm run dev
 ```
 
-### provider worker
-```bash
-cd provider-worker
-npm install
-npm start
-```
+## all commands
 
-### contracts
-```bash
-cd contracts
-cargo build --release --target wasm32-unknown-unknown
-```
+| Command | What it does |
+|---------|-------------|
+| `npm run dev` | Start frontend dev server |
+| `npm run build` | Build for production |
+| `npm run worker` | Start GPU worker server |
+| `npm run contracts:build` | Build Soroban contracts |
+| `npm run contracts:test` | Run contract tests |
+| `npm run contracts:deploy` | Build + deploy + initialize contracts |
 
 ## how it works
 
@@ -66,25 +62,22 @@ cargo build --release --target wasm32-unknown-unknown
 
 ## env vars
 
-frontend `.env`:
+create a `.env` file at the root:
 ```
 VITE_PINATA_JWT=your_jwt_here
-```
-
-provider-worker `.env`:
-```
 PINATA_JWT=your_jwt_here
 ```
+
+## deployed contracts (testnet)
+
+- GPU Registry: `CAHUSLBSYQETDXGUEDPMA6QNLRJBX2JW7BYL2LXSWYBLZN543FKM5LAX`
+- Job Marketplace: `CAWNKF4EFHJYJPHZSIXYPG5D45HFGLBNFN6NGO3676YTRLNNXGKJ7PMW`
 
 ## colors
 
 - primary: orange-500 (#f97316)
-- bg: zinc-950
+- bg: white
 - accent: orange-400
-
-## deploy contracts
-
-stellar cli needed. check stellar docs for soroban deployment.
 
 ---
 
